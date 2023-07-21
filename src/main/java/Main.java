@@ -12,6 +12,13 @@ public class Main {
             File stats = new File("stats.txt");
             stats.createNewFile();
 
+            Employee[] employees = EmployeeManager.readEmployeesFromFile(file, 100);
+            if (employees.length > 0) {
+                EmployeeManager.saveStats(employees, stats);
+            } else {
+                System.out.printf("There was a problem with file %s", file.getName());
+            }
+
 //            FileWriter fileWriter = new FileWriter(stats);
 //            fileWriter.write("Średnia wypłata: 5000");
 //
